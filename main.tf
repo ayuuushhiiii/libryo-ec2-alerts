@@ -8,17 +8,17 @@ module "sns" {
   alert_email = var.alert_email
 }
 
-module "log_groups" {
-  source     = "./modules/cloudwatch-log-groups"
-  log_groups = var.log_groups
-}
+# module "log_groups" {
+#   source     = "./modules/cloudwatch-log-groups"
+#   log_groups = var.log_groups
+# }
 
 module "metric_filters" {
   source         = "./modules/cloudwatch-metric-filters"
   log_groups     = var.log_groups
   filter_pattern = var.error_filter_pattern
 
-  depends_on = [module.log_groups]
+  #depends_on = [module.log_groups]
 }
 module "alarms" {
   source        = "./modules/cloudwatch-alarms"
