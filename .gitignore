@@ -1,5 +1,5 @@
 # Ignore everything
-*
+!cloudwatch-log-groups
 
 # Except README
 !README.md
