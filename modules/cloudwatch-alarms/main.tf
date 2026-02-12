@@ -1,7 +1,7 @@
-resource "aws_cloudwatch_metric_alarm" "error_alarm" {
+resource "aws_cloudwatch_metric_alarm" "this" {
   for_each = toset(var.log_groups)
 
-  alarm_name          = "${replace(each.value, "/", "-")}-error-alarm"
+  alarm_name          = "${trim(replace(each.value, "/", "-"), "-")}-error-alarm"
   comparison_operator = "GreaterThanOrEqualToThreshold"
   evaluation_periods  = 1
   metric_name         = "AppErrorCount"
