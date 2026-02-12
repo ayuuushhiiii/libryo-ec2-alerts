@@ -1,0 +1,1 @@
+It will fetch all the error logs from EC2 to cloud watch and then share it with the respective end user.
