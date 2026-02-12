@@ -17,8 +17,9 @@ module "metric_filters" {
   source         = "./modules/cloudwatch-metric-filters"
   log_groups     = var.log_groups
   filter_pattern = var.error_filter_pattern
-}
 
+  depends_on = [module.log_groups]
+}
 module "alarms" {
   source        = "./modules/cloudwatch-alarms"
   log_groups    = var.log_groups
